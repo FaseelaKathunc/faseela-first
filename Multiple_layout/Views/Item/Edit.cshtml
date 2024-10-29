@@ -1,0 +1,93 @@
+﻿@model Viewmodel;
+
+@{
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Scripts {
+    <script>
+
+
+        $(document).ready(function(){
+            getProductByCategoryIdNew();
+            })
+        $("#categoryId").change(function () {
+
+            getProductByCategoryId();
+        });
+        var getProductByCategoryId = function ()
+        {
+            debugger;
+            $.ajax({
+                url: '@Url.Action("GetProductByCategoryId", "Item")',
+                type:'GET',
+                data:{
+                    categoryId:$('#categoryId').val(),
+                },
+                success: function (data) {
+                    $('#productId').find('option').remove()
+                    $(data).each(
+                        function (index,item) {
+                            $('#productId').append('<option value="' + item.p_id + '">' + item.p_name + '</option>')
+                        }
+                    )}
+
+            })
+        }
+        var getProductByCategoryIdNew = function () {
+            debugger;
+            $.ajax({
+                url: '@Url.Action("GetProductByCategoryIdNew", "Item")',
+                type: 'GET',
+                data: {
+                   Itemid: $('#I_id').val(),
+                },
+                success: function (data) {
+                    $('#productId').find('option').remove()
+                    $(data).each(
+                        function (index, item) {
+                            $('#productId').append('<option value="' + item.p_id + '">' + item.p_name + '</option>')
+                        }
+                    )
+                }
+
+            })
+        }
+        
+
+    </script>
+
+}
+
+<div>
+    <form method="post">
+
+        <input type="hidden" asp-for="I_id"/>
+        <label asp-for="C_id">category name</label>
+
+        <select asp-for="C_id" id="categoryId" asp-items="@ViewBag.categories">
+            <option disabled selected>--select category--</option>
+        </select>
+        <br />
+
+        <label asp-for="P_id">Product </label>
+
+        <br />
+        <select asp-for="P_id" id="productId" asp-items="@ViewBag.Products">
+            <option disabled selected>--select products--</option>
+        </select>
+
+        <br />
+        <input type="text"  asp-for="I_Name" />
+        <br/>
+        <input type="hidden" id="I_id" />
+
+        <input type="submit" value="Update"  asp-action="Edit" asp-controller="Item" />
+
+    </form>
+</div>
+

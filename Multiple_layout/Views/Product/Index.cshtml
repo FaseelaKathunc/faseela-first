@@ -1,0 +1,51 @@
+﻿
+    @model PaginatedList<viewmodel_index>
+
+@{
+    Layout = "~/Views/Shared/Admin_layout.cshtml";
+}
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a asp-action="Create" asp-controller="product">Create</a>
+
+<form>
+    <table>
+        <tr>
+            <thead>
+                <tr>
+                    <th>category_name</th>
+                    <th>Product name</th></tr>
+               
+            </thead>
+            <tbody>
+                @foreach(var f in Model)
+                {
+                    <tr>
+                        <td>@f.C_name</td>
+                        <td>
+                            @f.P_name
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </tr>
+    </table>
+    @{
+        var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+    }
+    <a action="Admin_viewfile" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-outline-danger @preDisabled">
+        Previous
+    </a>
+    <a action="Admin_viewfile" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-outline-danger @nextDisabled">
+        Next
+    </a>
+
+</form>
