@@ -12,6 +12,7 @@ namespace Multiple_layout.Controllers
         {
             _dbhelper = dbhelper;
         }
+<<<<<<< HEAD
         //public async Task<IActionResult> Index()
         //{
         //    return _dbhelper.tbl_category!= null ?
@@ -20,6 +21,12 @@ namespace Multiple_layout.Controllers
             
         //}
 
+=======
+        public IActionResult Index()
+        {
+            return View();
+        }
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
         public IActionResult CategoryCreate()
         {
             return View();
@@ -34,6 +41,7 @@ namespace Multiple_layout.Controllers
             return RedirectToAction("CategoryCreate");
 
         }
+<<<<<<< HEAD
         //commented adding another function
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -56,5 +64,7 @@ namespace Multiple_layout.Controllers
         //    return View(PaginatedList<Category>.
         //        Create(_dbhelper.tbl_category.ToList(),pageNumber ?? 1, page_size));
         //}
+=======
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
     }
 }

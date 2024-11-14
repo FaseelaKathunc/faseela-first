@@ -90,6 +90,7 @@ namespace Multiple_layout.Migrations
 
                     b.ToTable("tbl_Register");
                 });
+<<<<<<< HEAD
 
             modelBuilder.Entity("Multiple_layout.Models.Viewmodel", b =>
                 {
@@ -113,6 +114,8 @@ namespace Multiple_layout.Migrations
 
                     b.ToTable("tbl_Items");
                 });
+=======
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
 #pragma warning restore 612, 618
         }
     }

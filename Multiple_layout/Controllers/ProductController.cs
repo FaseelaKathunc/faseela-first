@@ -1,13 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore;
 using Multiple_layout.Data;
 using Multiple_layout.Models;
 
+=======
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
 
 namespace Multiple_layout.Controllers
 {
     public class ProductController : Controller
     {
+<<<<<<< HEAD
         public readonly DB_Helper _dbhelper;
         public ProductController(DB_Helper dbhelper)
         {
@@ -60,4 +64,11 @@ namespace Multiple_layout.Controllers
     }
     
 
+=======
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
 }

@@ -11,6 +11,9 @@ namespace Multiple_layout.Data
         public DbSet<Register>tbl_Register { get; set; }
         public DbSet<Category> tbl_category {  get; set; }  
         public DbSet<Product> tbl_products { get; set; }
+<<<<<<< HEAD
         public DbSet<Viewmodel> tbl_Items { get; set; }
+=======
+>>>>>>> 738903146ff7e70420554bddc00952069093d883
     }
 }
